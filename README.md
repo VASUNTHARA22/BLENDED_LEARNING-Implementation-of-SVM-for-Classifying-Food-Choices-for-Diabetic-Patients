@@ -27,7 +27,7 @@ To implement a Support Vector Machine (SVM) model to classify food items and opt
 ```
 /*
 Program to implement SVM for food classification for diabetic patients.
-Developed by: S VASUNTHARA SAI
+Developed by: VASUNTHARA SAI S
 RegisterNumber:  212224230297
 */
 from typing_extensions import dataclass_transform
@@ -38,8 +38,14 @@ from sklearn.metrics import accuracy_score, classification_report,confusion_matr
 import seaborn as sns
 import matplotlib.pyplot as plt
 data = pd.read_csv("/content/food_items_binary (1).csv")
+print("Name: VASUNTHARA SAI S")
+print("Reg.no : 212224230297")
+print()
+print("Food Items Binary")
 print(data)
+print()
 print(data.head())
+print()
 print(data.columns)
 
 from sklearn.svm import SVC
@@ -63,14 +69,15 @@ grid_search = GridSearchCV(svm , param_grid, cv = 5 , scoring = 'accuracy')
 grid_search.fit(X_train , y_train)
  
 best_model = grid_search.best_estimator_
-print("Name : S.VASUNTHARA SAI")
-print("Reg.no : 212224230297")
+print()
 print("Best Parameters:" , grid_search.best_params_)
 
 
 y_pred = best_model.predict(X_test)
 accuracy = accuracy_score(y_test , y_pred)
+print()
 print("Accuracy: ",accuracy)
+print()
 print("Classification report:\n",classification_report(y_test , y_pred))
 conf_matrix = confusion_matrix(y_test , y_pred)
 sns.heatmap(conf_matrix, annot = True , fmt="d" , cmap = "Blues")
@@ -79,13 +86,13 @@ plt.ylabel("Actual")
 plt.title("Confusion matrix")
 plt.show()
 
+
 ```
 
 ## Output:
-<img width="842" height="682" alt="image" src="https://github.com/user-attachments/assets/e18fbe64-3ca9-490c-a84e-23131f0e94ba" />
+<img width="794" height="805" alt="image" src="https://github.com/user-attachments/assets/1820bf6c-9bc2-4824-9ed4-ca1d23e7b7a7" />
 
-<img width="807" height="795" alt="image" src="https://github.com/user-attachments/assets/914c786a-0beb-47fc-8c73-c7271d633748" />
-
+<img width="766" height="814" alt="image" src="https://github.com/user-attachments/assets/0b2de526-e7bc-42b9-9c84-488fa3d878fc" />
 
 ## Result:
 Thus, the SVM model was successfully implemented to classify food items for diabetic patients, with hyperparameter tuning optimizing the model's performance.
